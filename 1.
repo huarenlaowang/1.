@@ -1,19 +1,9 @@
-mixed-port: 7890
+port: 7890
+socks-port: 7891
 allow-lan: true
-bind-address: '*'
-mode: rule
+mode: Rule
 log-level: info
-external-controller: '127.0.0.1:9090'
-dns:
-    enable: true
-    ipv6: false
-    default-nameserver: [223.5.5.5, 119.29.29.29]
-    enhanced-mode: redir-host
-    fake-ip-range: 198.18.0.1/16
-    use-hosts: true
-    nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
-    fallback: ['tls://1.0.0.1:853', 'https://cloudflare-dns.com/dns-query', 'https://dns.google/dns-query']
-    fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
+external-controller: :9090
 proxies:
     - { name: HK01, type: ss, server: gdgz.marslink.icu, port: 41100, cipher: chacha20-ietf-poly1305, password: fa543eea-3de6-489e-85e1-34a3aa9e094b, udp: true }
     - { name: HK06, type: ss, server: hz.marslink.icu, port: 41100, cipher: chacha20-ietf-poly1305, password: fa543eea-3de6-489e-85e1-34a3aa9e094b, udp: true }
